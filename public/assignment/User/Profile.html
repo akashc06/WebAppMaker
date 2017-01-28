@@ -3,28 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a>
+                <span class="glyphicon glyphicon-ok" style="color: white"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color: white">
+                Profile
+            </a>
+        </div>
+    </div>
+</nav>
 
-<div class="container form-group">
-    <label for="uname">Username</label>
-    <input type="text" class="form-control" id="uname" placeholder="jannunzi">
-    <label for="Email">Email</label>
-    <input type="email" class="form-control" id="Email" placeholder="jannunzi@gmail.com">
-    <label for="fname">First Name</label>
-    <input type="text" class="form-control" id="fname" placeholder="Jose">
-    <label for="lname">Last Name</label>
-    <input type="text" class="form-control" id="lname" placeholder="Annunziato">
-    <a class="btn btn-primary btn-block" href="http://getbootstrap.com/getting-started/#download">Websites</a>
-    <a class="btn btn-danger btn-block" href="Login.html">Logout</a>
 
+<div class="container-fluid">
 
+    <label for="uname" class="Uname">Username</label>
+    <input id="uname" class="form-control" type="text" placeholder="Username"/>
 
+    <label for="email">Email</label>
+    <input id="email" class="form-control" type="email" placeholder="Email"/>
 
+    <label for="first" >First Name</label>
+    <input id="first" class="form-control" type="text" placeholder="First Name"/>
 
+    <label for="last">Last Name</label>
+    <input id="last" class="form-control" type="text" placeholder="Last Name"/>
+
+    <a class="btn btn-primary btn-block" style="margin-top: 10px" href="../Website/website-list.html">
+        Websites
+    </a>
+
+    <a class="btn btn-danger btn-block" href="login.html">
+        Logout
+    </a>
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="row navbar-text text-center pull-right">
+
+            <div class="col-xs-3">
+                <a>
+                    <span class="glyphicon glyphicon-user" style="color: white"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
 
 </body>
 </html>
