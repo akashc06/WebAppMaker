@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Page list</title>
+    <title>Widget Image</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
+
 <nav class="navbar navbar-default navbar-fixed-top container-fluid PageNav">
     <div>
         <div class="navbar-text pull-right">
             <a href="new-page.html">
-                <span class="glyphicon glyphicon-plus PageStyle"></span>
+                <span class="glyphicon glyphicon-ok PageStyle"></span>
             </a>
         </div>
         <div class="navbar-text pull-left">
@@ -21,42 +22,34 @@
         </div>
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                Pages
+                Widget Edit
             </a>
         </div>
-
     </div>
 </nav>
 
-<div class="container">
-    <ul class="list-group" style="padding-top: 36px">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-10">
-                    Blog post
-                </div>
-                <div class="col-xs-2">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-10">
-                    Blog post
-                </div>
-                <div class="col-xs-2">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </div>
-            </div>
-        </li>
 
-    </ul>
+<div class="form-group container" style="padding-top: 30px">
+
+    <label for="wid-name">Name</label>
+    <input type="text" id="wid-name" class="form-control">
+
+    <label for="wid-text">Text</label>
+    <input type="text" id="wid-text" class="form-control">
+
+    <label for="wid-url">URL</label>
+    <input type="url" min="0" id="wid-url" class="form-control">
+
+    <label for="wid-width">Width</label>
+    <input type="text" id="wid-width" class="form-control">
+
+    <label for="wid-file">Upload</label>
+    <input type="file" id="wid-file" class="form-control" placeholder="No file chosen">
+
+    <a class="btn btn-primary btn-block">Upload Image</a>
+    <a class="btn btn-danger btn-block">Delete</a>
 </div>
+
 
 <nav class="navbar navbar-default navbar-fixed-bottom container-fluid PageNav">
     <div class="navbar-text pull-right">
@@ -65,5 +58,6 @@
         </a>
     </div>
 </nav>
+
 </body>
 </html>

@@ -16,11 +16,19 @@ body {
     background-color: #1b6d85;
     border-color: #e7e7e7;
 }
-
-.glyphicon {
+.UserStyle{
     color: white;
 }
 
+.PageStyle{
+    color: dimgrey;
+}
 .ListGlyp {
     color: black;
 }
+
+.PageNav {
+    background-color: ghostwhite;
+    color: #0a0a0a;
+}
+
