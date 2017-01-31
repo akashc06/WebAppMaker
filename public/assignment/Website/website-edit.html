@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Website-new</title>
+    <title>Website Edit</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../css/style.css" rel="stylesheet"/>
 </head>
@@ -26,8 +26,8 @@
                 </a>
             </div>
         </div>
-        <div class="col-sm-8">
-            <div class="navbar-text pull-left visible-xs">
+        <div class="col-sm-8 hidden-xs">
+            <div class="navbar-text pull-left hidden-xs">
                 <a href="website-list.html">
                     <span class="glyphicon UserStyle glyphicon-chevron-left"></span>
                 </a>
@@ -39,7 +39,7 @@
             </div>
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <div class="UserStyle">New Website</div>
+                    <div class="UserStyle">Edit Website</div>
                 </a>
             </div>
         </div>
@@ -54,27 +54,27 @@
                     Dominos
                 </a>
                 <a href="#">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                    <span class="glyphicon glyphicon-cog pull-right" ></span>
                 </a>
             </li>
             <li class="list-group-item">Facebook
                 <a href="#">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                    <span class="glyphicon glyphicon-cog pull-right" ></span>
                 </a>
             </li>
             <li class="list-group-item">Google
                 <a href="#">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                    <span class="glyphicon glyphicon-cog pull-right" ></span>
                 </a>
             </li>
             <li class="list-group-item">Orkut
                 <a href="#">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                    <span class="glyphicon glyphicon-cog pull-right" ></span>
                 </a>
             </li>
         </ul>
     </div>
-    <div class="col-sm-8 Uname" >
+    <div class="col-sm-8 Uname">
         <form>
             <div class="form-group">
                 <label for="newweb-name">Name</label>
@@ -85,6 +85,10 @@
                 <label for="newweb-description">Description</label>
                 <textarea id="newweb-description" class="form-control" rows="5" placeholder="Description"></textarea>
             </div>
+
+            <a href="website-list.html" class="btn btn-danger btn-block">
+                Delete
+            </a>
         </form>
     </div>
 </div>
