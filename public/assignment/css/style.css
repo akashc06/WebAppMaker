@@ -7,6 +7,7 @@ input.form-control {
 }
 body, .Uname {
     padding-top: 36px;
+    overflow-x: hidden;
 }
 
 .navbar-default {
