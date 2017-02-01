@@ -42,10 +42,17 @@ body, .Uname {
     color: #0a0a0a;
 }
 
+.img-responsive{
+    width: 97%;
+}
 .bottombtns {
     padding-bottom: 50px;
 }
 
 .videotag {
     padding-bottom: 80px;
+}
+
+a:hover {
+    text-decoration: none;
 }
