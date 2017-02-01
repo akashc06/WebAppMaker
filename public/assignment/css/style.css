@@ -23,15 +23,11 @@ body, .Uname {
 
 .websitelist-scroll{
     overflow: scroll;
-    height: 600px;
+    height: 550px;
 }
 
 .pull-left {
     margin-left: 0px;
-}
-
-.pull-right {
-    margin-right: 0px;
 }
 
 .PageStyle{
@@ -46,3 +42,10 @@ body, .Uname {
     color: #0a0a0a;
 }
 
+.bottombtns {
+    padding-bottom: 50px;
+}
+
+.videotag {
+    padding-bottom: 80px;
+}

@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Page</title>
+    <title>Page-New</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
+
 <nav class="navbar navbar-default navbar-fixed-top PageNav">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
@@ -16,34 +18,34 @@
         </div>
         <div class="navbar-text pull-left">
             <a href="page-list.html">
-                <span class="glyphicon glyphicon-chevron-left PageStyle"></span>
+                <span class="glyphicon glyphicon-chevron-left PageStyle" ></span>
             </a>
         </div>
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                Edit Page
+                New Page
             </a>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid form-group Uname">
+<div class="container-fluid form-group Uname bottombtns">
 
+    <div class="form-group">
     <label for="Pname">Name</label>
     <input class="form-control" type="text" id="Pname" placeholder="Page Name">
+    </div>
 
+    <div class="form-group">
     <label for="Ptitle">Title</label>
     <input class="form-control" type="text" id="Ptitle" placeholder="Page Title">
-
-    <a href="page-list.html" class="btn btn-danger form-control">Delete</a>
-
-
+    </div>
 
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom container-fluid PageNav">
     <div class="navbar-text pull-right">
-        <a href="../User/profile.html">
+        <a href="../user/profile.html">
             <span class="glyphicon glyphicon-user PageStyle"></span>
         </a>
     </div>
