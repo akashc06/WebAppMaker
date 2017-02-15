@@ -20,12 +20,7 @@
 
          function updatefunc (newsite) {
             var site = WebsiteService.updateWebsite(webID, newsite);
-            if(site == null){
-                app.error = "Invalid Website ID";
-
-            }else {
-                app.message = "Website successfully updated.";
-            }
+             $location.url("/user/" + userID + "/website/");
         }
 
         function init() {

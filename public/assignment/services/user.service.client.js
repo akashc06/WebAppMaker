@@ -40,7 +40,7 @@
             for(u in users){
                 if (users[u]._id == userId){
                     users[u].firstName = newuser.firstName;
-                    users[u].firstName = newuser.lastName;
+                    users[u].lastName = newuser.lastName;
                     return users[u];
                 }
             }

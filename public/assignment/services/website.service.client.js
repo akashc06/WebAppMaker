@@ -31,7 +31,7 @@
             }
         }
         function createWebsite(userId, website) {
-            var a = (Math.floor(100 + Math.random() * 900)).toString();
+            var a = (new Date()).getTime();
             var newwebsite = {
                 "_id": a,
                 "name": website.name,

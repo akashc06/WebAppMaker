@@ -9,7 +9,7 @@
         app.clicked = create;
 
             function create(user) {
-            var a = (Math.floor(100 + Math.random() * 900)).toString();
+            var a = (new Date()).getTime();
             var newuser = {
                 "_id": a,
                 "username": user.username,
@@ -18,7 +18,7 @@
                 "lastName": user.lastName
             };
             UserService.createUser(newuser);
-            $location.url("/login");
+            $location.url("/user/"+ newuser._id);
         }
 
     }
