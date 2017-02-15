@@ -9,6 +9,8 @@
         var webID = $routeParams.wid;
         app.wid = webID;
         app.uid = userID;
+
+        // Event Handlers
         app.delete = deletefun;
         app.update = updatefunc;
 

@@ -8,6 +8,8 @@
         app.userId = $routeParams.uid;
         app.wid = $routeParams.wid;
         app.pid = $routeParams.pid;
+
+        // Event Handlers
         app.getYoutubeUrl = getYoutubeUrl;
         app.getTrustedHtml = getTrustedHtml;
         app.widgetTemplateUrl = widgetTemplateUrl; 

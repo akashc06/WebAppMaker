@@ -7,6 +7,7 @@
         var app = this;
         var userID = $routeParams.uid;
         app.uid = userID;
+
         app.update = update;
 
             function update (newuser) {
@@ -20,9 +21,7 @@
         }
 
         function init() {
-
             app.user = UserService.findUserById(userID);
-
         }
         init();
         

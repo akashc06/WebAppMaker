@@ -8,6 +8,8 @@
         app.wid = $routeParams.wid;
         app.uid = $routeParams.uid;
         app.pid = $routeParams.pid;
+
+        // Event Handlers
         app.update = update;
         app.delete = deletefunc;
 

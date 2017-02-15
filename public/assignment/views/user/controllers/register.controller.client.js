@@ -6,9 +6,10 @@
 
     function registerController($location, UserService) {
         var app = this;
+
         app.clicked = create;
 
-            function create(user) {
+        function create(user) {
             var a = (new Date()).getTime();
             var newuser = {
                 "_id": a,

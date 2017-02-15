@@ -7,6 +7,7 @@
         var app = this;
         var userID = $routeParams.uid;
         app.uid = userID;
+
         app.create = create;
 
         function create(newsite) {

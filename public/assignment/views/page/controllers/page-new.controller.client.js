@@ -7,6 +7,8 @@
         var app = this;
         app.wid = $routeParams.wid;
         app.uid = $routeParams.uid;
+
+
         app.create = create;
 
         function create(page) {

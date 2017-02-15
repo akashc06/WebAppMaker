@@ -5,8 +5,8 @@
 
         function loginController($location, UserService) {
             var app = this;
-            app.login = login;
 
+            app.login = login;
 
             function login(user) {
                 var user = UserService.findUserByCredentials(user.username, user.password);
