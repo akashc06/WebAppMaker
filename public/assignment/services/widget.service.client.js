@@ -58,7 +58,6 @@
                             widgets[w].url = widget.url;
                             widgets[w].width = widget.width;
                             return widget[w];
-
                         default:
                             return null;
                     }
@@ -83,7 +82,7 @@
                     wids.push(widgets[w]);
                 }
             }
-            return wids;
+            return angular.copy(wids);
         }
     }
 })();

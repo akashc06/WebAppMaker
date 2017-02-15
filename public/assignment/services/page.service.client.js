@@ -33,7 +33,7 @@
                 if (pages[p]._id == pageId){
                     pages[p].name = page.name;
                     pages[p].description = page.description;
-                return pages[p];
+                return angular.copy(pages[p]);
                 }
 
             }
@@ -65,7 +65,7 @@
                     lop.push(pages[p]);
                 }
             }
-            return lop;
+            return angular.copy(lop);
         }
 
 

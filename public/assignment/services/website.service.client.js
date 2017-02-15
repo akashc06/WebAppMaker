@@ -39,14 +39,14 @@
                 "description": website.description
             };
             websites.push(newwebsite);
-            return websites;
+            return angular.copy(websites);
         }
         function updateWebsite(websiteId, website) {
             for(w in websites){
                 if (websites[w]._id == websiteId){
                     websites[w].name = website.name;
                     websites[w].description = website.description;
-                    return websites[w];
+                    return angular.copy(websites[w]);
                 }
 
                 }
@@ -70,7 +70,7 @@
                     listOfSites.push(websites[w]);
                 }
             }
-            return listOfSites;
+            return angular.copy(listOfSites);
         }
     }
 })();

@@ -33,7 +33,7 @@
 
         function createUser(newuser) {
             users.push(newuser);
-            return users;
+            return angular.copy(users);
         }
         
         function updateUser(userId, newuser) {
@@ -41,7 +41,7 @@
                 if (users[u]._id == userId){
                     users[u].firstName = newuser.firstName;
                     users[u].lastName = newuser.lastName;
-                    return users[u];
+                    return angular.copy(users[u]);
                 }
             }
             return null;
