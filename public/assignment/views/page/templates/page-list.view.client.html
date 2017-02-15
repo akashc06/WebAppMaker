@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default navbar-fixed-top container-fluid">
+    <div>
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/new">
+                <span class="glyphicon glyphicon-plus PageStyle"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-left">
+            <a href="#/user/{{model.uid}}/website">
+                <span class="glyphicon glyphicon-chevron-left PageStyle"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">
+                <p class="PageStyle">Pages</p>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid bottombtns topbtns">
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-6 col-xs-10">
+                    Name
+                    <span class="glyphicon glyphicon-triangle-top"></span>
+                </div>
+                <div class="col-sm-4 hidden-xs">
+                    Description
+                </div>
+                <div class="col-sm-2 col-xs-2">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/new" class="pull-right">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li ng-repeat="each in model.pages" class="list-group-item">
+            <div class="row">
+                <div class="col-sm-6 col-xs-10">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{each._id}}/widget">
+                        {{each.name}}
+                    </a>
+                </div>
+                <div class="col-sm-4 hidden-xs">
+                    {{each.description}}
+                </div>
+                <div class="col-sm-2 col-xs-2">
+                    <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{each._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom container-fluid PageNav">
+    <div class="navbar-text pull-right">
+        <a href="#/user/{{model.uid}}/">
+            <span class="glyphicon UserStyle glyphicon-user PageStyle"></span>
+        </a>
+    </div>
+</nav>

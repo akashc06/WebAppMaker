@@ -25,14 +25,14 @@
             </div>
             <div class="navbar-header">
                 <a class="navbar-brand" href="">
-                    <div class=" PageStyle">New Page</div>
+                    <div class=" PageStyle">Edit Page</div>
                 </a>
             </div>
         </div>
     </div>
 </nav>
 
-<div class="row container-fluid " >
+<div class="row container-fluid" >
     <div class="col-sm-4 hidden-xs" >
         <ul class="list-group topbtns">
             <li class="list-group-item">
@@ -56,7 +56,7 @@
                         </a>
                     </div>
                     <div class="col-sm-2 col-xs-2">
-                        <a class="pull-right" href=#/user/{{model.uid}}/website/{{model.wid}}/page/{{each._id}}">
+                        <a class="pull-right" href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{each._id}}">
                             <span class="glyphicon glyphicon-cog pull-right"></span>
                         </a>
                     </div>
@@ -70,26 +70,34 @@
 
             <div class="form-group">
                 <label for="Pname">Name</label>
-                <input  ng-model="model.page.name"
-                        class="form-control"
-                        type="text"
-                        id="Pname"
-                        placeholder="Page Name">
+                <input  ng-model="model.thispage.name"
+                        class="form-control" type="text" id="Pname" value="Blog Post" placeholder="Page Name">
             </div>
 
             <div class="form-group">
                 <label for="Ptitle">Title</label>
-                <input  ng-model="model.page.description"
-                        class="form-control"
-                        type="text"
-                        id="Ptitle"
-                        placeholder="Page Title">
+                <input  ng-model="model.thispage.description"
+                        class="form-control" type="text" id="Ptitle" placeholder="Page Title">
+            </div>
+
+            <div class="form-group">
+                <a class="btn btn-block btn-info" ng-click="model.update(model.thispage)">
+                    Update
+                </a>
             </div>
 
             <div class="bottombtns">
-                <a class="btn btn-block btn-success" ng-click="model.create(model.page)">
-                    Create
+                <a class="btn btn-block btn-danger" ng-click="model.delete()">
+                    Delete
                 </a>
+            </div>
+
+            <div class="alert alert-success bottombtns" ng-show="model.message">
+                <strong>{{model.message}}</strong>
+            </div>
+
+            <div class="alert alert-danger bottombtns" ng-show="model.error">
+                <strong>{{model.error}}</strong>
             </div>
 
         </div>

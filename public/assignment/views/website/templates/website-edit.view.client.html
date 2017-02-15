@@ -1,0 +1,115 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="col-sm-4 hidden-xs">
+            <div class="navbar-text pull-left">
+                <a href="website-list.html">
+                    <span class="glyphicon glyphicon-chevron-left UserStyle"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">
+                    <div class="UserStyle"> Websites </div>
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="#/user/{{model.uid}}/website/new">
+                    <span class="glyphicon grid-plus glyphicon-plus UserStyle"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="navbar-text pull-left visible-xs">
+                <a href="website-list.html">
+                    <span class="glyphicon UserStyle glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">
+                    <div class="UserStyle">Edit Website</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<br/>
+<br/>
+
+<div class="row container-fluid">
+    <div class="col-sm-4 hidden-xs wbdv-left-pane">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">
+                        Name
+                        <span class="glyphicon glyphicon-triangle-top"></span>
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#/user/{{model.uid}}/website/new" class="pull-right">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li ng-repeat="each in model.list" class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">
+                        {{each.name}}
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="#/user/{{model.uid}}/website/{{each._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-8 wbdv-right-pane col-xs-12">
+
+       <div class="form-group">
+        <label for="website-name">Website Name</label>
+        <input ng-model="model.website.name" placeholder="Website Name"
+               value="Facebook"
+               class="form-control"
+               id="website-name"/>
+       </div>
+
+        <div class="form-group">
+        <label for="website-description">Website Description</label>
+        <textarea ng-model="model.website.description"
+                  placeholder="Website Description"
+                  class="form-control"
+                  rows="3"
+                  id="website-description">This is the description of facebook website</textarea>
+        </div>
+
+        <div class="form-group">
+        <a ng-click="model.update(model.website)" class="btn btn-primary btn-block">
+            Update
+        </a>
+        </div>
+        <div class="bottombtns">
+        <a ng-click="model.delete()" class="btn btn-danger btn-block">
+            Delete
+        </a>
+        </div>
+
+        </div>
+    </div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text row pull-right">
+            <div class="col-xs-2">
+                <a href="#/user/{{model.uid}}">
+                    <span class="glyphicon UserStyle glyphicon-user"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

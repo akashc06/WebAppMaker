@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top container-fluid PageNav">
+    <div>
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/new">
+                <span class="glyphicon glyphicon-plus PageStyle"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-left">
+            <a href="#/user/{{model.userId}}/website/{{model.wid}}/page">
+                <span class="glyphicon glyphicon-chevron-left PageStyle"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <div class="PageStyle">Widgets</div>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div ng-repeat="widget in model.widgets">
+        <div class="jga-toolbar pull-right">
+            <a href="#/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </div>
+        <ng-include src="model.widgetTemplateUrl(widget.widgetType)"></ng-include>
+
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom container-fluid PageNav">
+    <div class="navbar-text pull-right">
+        <a href="#/user/{{model.userId}}">
+            <span class="glyphicon UserStyle glyphicon-user PageStyle"></span>
+        </a>
+    </div>
+
+
+
+</nav>
