@@ -20,11 +20,7 @@
 
         function update(newpage) {
             var page = PageService.updatePage(app.pid, newpage);
-            if (page == null){
-                app.error = "Cannot update page"
-            }else {
-                app.message = "Page Updated";
-            }
+            $location.url("/user/"+ app.uid + "/website/" + app.wid + "/page");
         }
 
         function init() {
