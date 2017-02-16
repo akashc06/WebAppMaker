@@ -70,6 +70,9 @@
                     controller: "WidgetEditController",
                     controllerAs: "model"
                 })
+                .otherwise({
+                    redirectTo: "/login"
+                });
 
 
         }
