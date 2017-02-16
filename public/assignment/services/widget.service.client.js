@@ -18,6 +18,7 @@
         ];
 
         var api = {
+            "widgets": widgets,
             "findWidgetsByPageId": findWidgetsByPageId,
             "findWidgetById": findWidgetById,
             "deleteWidget": deleteWidget,
@@ -38,6 +39,7 @@
             widget._id = (new Date()).getTime();
             widget.pageId = pageId;
             widgets.push(widget);
+            return angular.copy(widget);
         }
 
         function updateWidget(widgetId, widget) {

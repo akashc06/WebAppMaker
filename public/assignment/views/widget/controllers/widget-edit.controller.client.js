@@ -11,7 +11,6 @@
         app.wdid = $routeParams.wgid;
 
         // Event Handlers
-        app.getTemplateUrl = getTemplateUrl;
         app.delete = deletefunc;
         app.update = update;
 
@@ -29,10 +28,6 @@
         function update(widget) {
             WidgetService.updateWidget(app.wdid, widget);
             $location.url("/user/" + app.uid + "/website/" + app.wid + "/page/" + app.pid + "/widget");
-        }
-
-        function getTemplateUrl(type) {
-            return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';
         }
 
     }

@@ -18,16 +18,29 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    <div ng-repeat="widget in model.widgets">
-        <div class="jga-toolbar pull-right">
-            <a href="#/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <ng-include src="model.widgetTemplateUrl(widget.widgetType)"></ng-include>
+<div class="container-fluid widpads bottombtns">
 
+    <div ng-repeat="widget in model.widgets">
+        <div ng-switch="widget.widgetType">
+            <div class="jga-toolbar">
+                <a href="#/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+            <div ng-switch-when="HEADER">
+                <ng-include src="'views/widget/templates/widget-HEADER.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="IMAGE">
+                <ng-include src="'views/widget/templates/widget-IMAGE.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="YOUTUBE" class="embed-responsive embed-responsive-16by9">
+                <ng-include src="'views/widget/templates/widget-YOUTUBE.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="HTML">
+                <ng-include src="'views/widget/templates/widget-HTML.view.client.html'"></ng-include>
+            </div>
+        </div>
     </div>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom container-fluid PageNav">
