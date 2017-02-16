@@ -57,7 +57,9 @@
             <li ng-repeat="each in model.list" class="list-group-item">
                 <div class="row">
                     <div class="col-xs-10">
-                        {{each.name}}
+                        <a href="#/user/{{model.uid}}/website/{{each._id}}/page">
+                            {{each.name}}
+                        </a>
                     </div>
                     <div class="col-xs-2">
                         <a href="#/user/{{model.uid}}/website/{{each._id}}">
