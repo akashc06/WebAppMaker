@@ -1,1 +1,93 @@
-<img ng-src="{{widget.url}}" width="{{widget.width}}">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-left">
+            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pageID}}/widget">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-right" ng-click="model.update(model.widget)">
+            <a href="">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">
+                Edit Image Widget
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="form-group">
+    <label for="IMGname">Name</label>
+    <input class="form-control"
+           ng-model="model.widget.name"
+           id="IMGname"
+           placeholder="Name"
+           type="text"/>
+    </div>
+
+    <div class="form-group">
+    <label for="IMGtitle">Title</label>
+    <input class="form-control"
+           ng-model="model.widget.title"
+           id="IMGtitle"
+           type="text"/>
+    </div>
+
+    <div class="form-group">
+    <label for="IMGurl">URL</label>
+    <input class="form-control"
+           ng-model="model.widget.url"
+           value="https://i.kinja-img.com/gawker-media/image/upload/s--gbj0N1ZQ--/c_scale,fl_progressive,q_80,w_800/fupi5rlzxnwhvfv1qgib.jpg"
+           id="IMGurl"
+           type="url"/>
+    </div>
+
+    <div class="form-group">
+    <label for="IMGwidth">Width</label>
+    <input class="form-control"
+           ng-model="model.widget.width"
+           value="100%"
+           id="IMGwidth"
+           type="text"/>
+    </div>
+
+    <form id="upload-form" class="form-group" action="/api/upload"  method="post" enctype="multipart/form-data">
+        <input  name="myFile"   type="file" class="form-control"/>
+        <input  name="width"    value="{{model.widget.width}}" style="display: none"/>
+        <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
+        <input name="userId" value="{{model.uid}}" style="display: none"/>
+        <input  name="pageId" value="{{model.pageID}}"   style="display: none"/>
+        <input name="websiteId" value="{{model.wid}}" style="display: none"/>
+
+        <button  type="submit" class="btn btn-block btn-primary form-control">Upload Image</button>
+    </form>
+
+    <div class="form-group">
+        <a class="btn btn-info btn-block" ng-click="model.update(model.widget)">
+            Update
+        </a>
+    </div>
+
+    <div class="form-group">
+    <a class="btn btn-danger btn-block" ng-click="model.deleteWidget()">
+        Delete
+    </a>
+    </div>
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.uid}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+

@@ -1,23 +1,33 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("WebsiteNewController", websitenewcontroller);
+        .controller("WebsiteNewController", WebsiteNewController);
 
-    function websitenewcontroller($routeParams, $location, WebsiteService) {
-        var app = this;
-        var userID = $routeParams.uid;
-        app.uid = userID;
+    function WebsiteNewController($routeParams, WebsiteService, $location) {
+        var vm = this;
+        vm.uid = $routeParams['uid'];
+        
+        //event handler
+        vm.create = create;
 
-        app.create = create;
-
-        function create(newsite) {
-            WebsiteService.createWebsite(userID, newsite);
-            $location.url("/user/" + app.uid + "/website");
-        }
 
         function init() {
-            app.list = WebsiteService.findWebsitesByUser(userID);
+            WebsiteService
+                .findWebsitesByUser(vm.uid)
+                .success(function (websites) {
+                    vm.websites = websites;
+                })
         }
         init();
+        
+        function create(website) {
+            WebsiteService
+                .createWebsite(vm.uid, website)
+                .success(function () {
+                    $location.url("/user/" + vm.uid + "/website");
+                })
+            
+        }
+
     }
 })();

@@ -1,34 +1,46 @@
+
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("WidgetEditController", WidgetEditController);
+        .controller("EditWidgetController", EditWidgetController);
 
-    function WidgetEditController($routeParams, WidgetService, $location) {
-        var app = this;
-        app.uid = $routeParams.uid;
-        app.wid = $routeParams.wid;
-        app.pid = $routeParams.pid;
-        app.wdid = $routeParams.wgid;
+    function EditWidgetController($routeParams, WidgetService, $location) {
+        var vm = this;
+        vm.uid = $routeParams['uid'];
+        vm.wid = $routeParams['wid'];
+        vm.pageID = $routeParams['pid'];
+        vm.widgetID = $routeParams['wgid'];
 
-        // Event Handlers
-        app.delete = deletefunc;
-        app.update = update;
 
+        //Event Handler
+        vm.update = update;
+        vm.deleteWidget = deleteWidget;
 
         function init() {
-            app.widget = WidgetService.findWidgetById(app.wdid);
+            WidgetService
+                .findWidgetById(vm.widgetID)
+                .success(function (widget) {
+                    vm.widget = widget;
+                })
         }
         init();
 
-        function deletefunc() {
-            WidgetService.deleteWidget(app.wdid);
-            $location.url("/user/" + app.uid + "/website/" + app.wid + "/page/" + app.pid + "/widget");
+        function update(widget) {
+            WidgetService
+                .updateWidget(vm.widgetID, widget)
+                .success(function () {
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pageID + "/widget");
+                })
         }
 
-        function update(widget) {
-            WidgetService.updateWidget(app.wdid, widget);
-            $location.url("/user/" + app.uid + "/website/" + app.wid + "/page/" + app.pid + "/widget");
+        function deleteWidget() {
+            WidgetService
+                .deleteWidget(vm.widgetID)
+                .success(function () {
+                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pageID + "/widget");
+                })
         }
 
     }
+
 })();

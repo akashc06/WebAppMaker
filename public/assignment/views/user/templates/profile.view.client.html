@@ -1,13 +1,14 @@
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.uid}}">
-                <span class="glyphicon glyphicon-ok UserStyle"></span>
+            <a href="" ng-click="model.update(model.user)">
+                <span class="glyphicon glyphicon-ok"></span>
             </a>
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#/user/{{model.uid}}">
-                <div class="UserStyle">Profile</div>
+            <a class="navbar-brand" href="">
+                Profile
             </a>
         </div>
     </div>
@@ -15,71 +16,78 @@
 
 <div class="container-fluid">
 
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
+    <div ng-show="model.message" class="alert alert-success">
+        {{model.message}}
+    </div>
+
     <div class="form-group">
-    <label for="uname" class="Uname">Username</label>
-    <input ng-model="model.user.username"
-           id="uname"
-           class="form-control"
+    <label for="puname">Username</label>
+    <input class="form-control"
+           ng-model="model.user.username"
+           id="puname"
            value="akash"
-           type="text"
-           placeholder="Username"/>
+           type="text"/>
     </div>
 
     <div class="form-group">
-    <label for="email">Email</label>
-    <input ng-model="model.user.email"
-           id="email" class="form-control" value="akash@gmail.com" type="email" placeholder="Email"/>
+    <label for="pmail">Email</label>
+    <input class="form-control"
+           ng-model="model.user.email"
+           value="akashc@gmail.com"
+           id="pmail"
+           type="email"/>
     </div>
 
     <div class="form-group">
-    <label for="first" >First Name</label>
-    <input ng-model="model.user.firstName"
-           id="first" class="form-control" value="Akash" type="text" placeholder="First Name"/>
+    <label for="pfname">First Name</label>
+    <input class="form-control"
+           ng-model="model.user.firstName"
+           id="pfname"
+           value="Akash"
+           type="text"/>
     </div>
 
     <div class="form-group">
-    <label for="last">Last Name</label>
-    <input  ng-model="model.user.lastName"
-            id="last" class="form-control" value="Murthy" type="text" placeholder="Last Name"/>
+    <label for="plname">Last Name</label>
+    <input class="form-control"
+           ng-model="model.user.lastName"
+           id="plname"
+           value="Chidananda Murthy"
+           type="text"/>
     </div>
 
     <div class="form-group">
-    <a class="btn btn-primary btn-block" href="#/user/{{model.user._id}}/website">
+    <div class="form-group">
+    <a href="#/user/{{model.user._id}}/website" class="btn btn-primary btn-block" >
         Websites
     </a>
     </div>
-
-    <p ng-show="model.error" class="alert alert-danger" role="alert">
-        {{model.error}}
-    </p>
-
-    <p ng-show="model.message" class="alert alert-success" role="alert">
-        {{model.message}}
-    </p>
-
-    <div class="form-group">
-        <a class="btn btn-info btn-block" ng-click="model.update(model.user)">
-            Update
-        </a>
     </div>
 
-    <div class="form-group bottombtns">
+    <div class="form-group">
+    <a class="btn btn-warning btn-block" ng-click="model.unRegisterUser(model.user)">
+        Unregister
+    </a>
+    </div>
+
+    <div class="form-group">
     <a class="btn btn-danger btn-block" href="#/login">
-        Logout
+        logout
     </a>
     </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <div class="row navbar-text text-center pull-right">
-
-            <div class="col-xs-3">
-                <a href="#/user/{{model.uid}}">
-                    <span class="glyphicon glyphicon-user UserStyle"></span>
-                </a>
-            </div>
-
+        <div class="navbar-text pull-right">
+            <a href="">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </div>
     </div>
 </nav>
+

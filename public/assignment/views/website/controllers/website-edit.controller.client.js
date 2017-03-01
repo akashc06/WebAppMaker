@@ -1,35 +1,47 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("WebsiteEditController", websiteeditController);
+        .controller("WebsiteEditController", WebsiteEditController);
 
-    function websiteeditController($routeParams, $location, WebsiteService) {
-        var app = this;
-        var userID = $routeParams.uid;
-        var webID = $routeParams.wid;
-        app.wid = webID;
-        app.uid = userID;
+    function WebsiteEditController($routeParams, WebsiteService,$location) {
+        var vm = this;
+        vm.uid = $routeParams['uid'];
+        vm.wid = $routeParams['wid'];
 
-        // Event Handlers
-        app.delete = deletefun;
-        app.update = updatefunc;
-
-        function deletefun(){
-            WebsiteService.deleteWebsite(app.wid);
-            console.log();
-            $location.url("/user/"+ app.uid + "/website");
-        }
-
-         function updatefunc (newsite) {
-            var site = WebsiteService.updateWebsite(webID, newsite);
-             $location.url("/user/" + userID + "/website/");
-        }
+        //Event Handler
+        vm.update = update;
+        vm.delete = deleteWeb;
 
         function init() {
-            app.website = WebsiteService.findWebsiteById(webID);
-            app.list = WebsiteService.findWebsitesByUser(userID);
+            WebsiteService
+                .findWebsiteById(vm.wid)
+                .success(function (website) {
+                    vm.website = website;
+                });
+            WebsiteService
+                .findWebsitesByUser(vm.uid)
+                .success(function (websites) {
+                    vm.websites = angular.copy(websites);
+                })
         }
         init();
+
+        function update(newWebsite) {
+            WebsiteService
+                .updateWebsite(vm.wid, newWebsite)
+                .success(function () {
+                    $location.url("/user/" + vm.uid + "/website/");
+                })
+        }
+
+        function deleteWeb(){
+            WebsiteService
+                .deleteWebsite(vm.wid)
+                .success(function () {
+                    $location.url("/user/" + vm.uid + "/website/");
+                })
+
+        }
 
     }
 })();

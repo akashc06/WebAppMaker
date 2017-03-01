@@ -1,74 +1,38 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .factory("PageService", PageService);
-    
-    function PageService() {
-        var pages = [
-            { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
-            { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
-            { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }
-        ];
+        .factory("PageService", pageService);
 
-        var api = {
-            "pages": pages,
-            "findPageByWebsiteId": findPageByWebsiteId,
-            "createPage": createPage,
-            "findPageById": findPageById,
-            "updatePage": updatePage,
-            "deletePage": deletePage
+    function pageService($http) {
+
+        var api ={
+            "createPage" : createPage,
+            "findPageByWebsiteId" : findPageByWebsiteId,
+            "findPageById" : findPageById,
+            "updatePage" : updatePage,
+            "deletePage" : deletePage,
         };
         return api;
 
-        function deletePage(pageId) {
-            for(p in pages){
-                if(pages[p]._id == pageId){
-                    pages.splice(p, 1);
-                }
-            }
+        function createPage(websiteId, page) {
+            return $http.post("/api/website/" + websiteId + "/page", page);
+        }
+
+        function findPageByWebsiteId(websiteId) {
+            return $http.get("/api/website/" + websiteId + "/page");
+        }
+
+        function findPageById(pageId) {
+            return $http.get("/api/page/"+ pageId);
         }
 
         function updatePage(pageId, page) {
-            for (p in pages){
-                if (pages[p]._id == pageId){
-                    pages[p].name = page.name;
-                    pages[p].description = page.description;
-                return angular.copy(pages[p]);
-                }
-
-            }
-            return null;
-        }
-        function findPageById(pageId) {
-            for (p in pages){
-                if (pages[p]._id == pageId){
-                    return angular.copy(pages[p])
-                }
-            }
-            return null;
+            return $http.put("/api/page/"+ pageId, page);
         }
 
-        function createPage(websiteId, page) {
-            var a = (new Date()).getTime();
-            var newpage = {
-                "_id": a,
-                "name": page.name,
-                "websiteId": websiteId,
-                "description": page.description
-            };
-            pages.push(newpage);
+        function deletePage(pageId) {
+            return $http.delete("/api/page/"+ pageId);
         }
-        function findPageByWebsiteId(websiteId) {
-            var lop = [];
-            for (p in pages){
-                if (pages[p].websiteId == websiteId){
-                    lop.push(pages[p]);
-                }
-            }
-            return angular.copy(lop);
-        }
-
-
-
     }
+
 })();

@@ -1,47 +1,63 @@
-<nav class="navbar navbar-default navbar-fixed-top container-fluid PageNav">
-    <div>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
-                <span class="glyphicon glyphicon-chevron-left PageStyle"></span>
+            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pageID}}/widget">
+                <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
+
         <div class="navbar-header">
             <a class="navbar-brand" href="">
-                <div class="PageStyle"> Choose Widget </div>
+                Choose Widget
             </a>
         </div>
     </div>
 </nav>
 
-<div class="container Uname bottombtns">
+<div class="container-fluid">
 
-        <a ng-click="model.addHeaderWidget()" href="" class="list-group-item list-group-item-action">Header</a>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a ng-click="model.newHeaderWidget()" href="">Header</a>
+        </li>
+        <li class="list-group-item">
+            <a>Label</a>
+        </li>
+        <li class="list-group-item">
+            <a>HTML</a>
+        </li>
+        <li class="list-group-item">
+            <a>Text Input</a>
+        </li>
+        <li class="list-group-item">
+            <a>Link</a>
+        </li>
+        <li class="list-group-item">
+            <a>Button</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.newImageWidget()" href="">Image</a>
+        </li>
+        <li class="list-group-item">
+            <a ng-click="model.newYouTubeWidget()" href="">YouTube</a>
+        </li>
+        <li class="list-group-item">
+            <a>Data Table</a>
+        </li>
+        <li class="list-group-item">
+            <a>Repeater</a>
+        </li>
+    </ul>
+</div>
 
-        <a href="" class="list-group-item list-group-item-action">Label</a>
-
-        <a href="" class="list-group-item list-group-item-action">HTML</a>
-
-        <a href="" class="list-group-item list-group-item-action">Text Input</a>
-
-        <a href="" class="list-group-item list-group-item-action">Link</a>
-
-        <a href="" class="list-group-item list-group-item-action">Button</a>
-
-        <a href="" ng-click="model.addImageWidget()" class="list-group-item list-group-item-action">Image</a>
-
-        <a href="" ng-click="model.addYouTubeWidget()" class="list-group-item list-group-item-action">Youtube</a>
-
-        <a href="" class="list-group-item list-group-item-action ">Data Table</a>
-
-        <a href="" class="list-group-item list-group-item-action">Repeater</a>
-
-<nav class="navbar navbar-default navbar-fixed-bottom PageNav">
-    <div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
         <div class="navbar-text pull-right">
             <a href="#/user/{{model.uid}}">
-                <span class="glyphicon glyphicon-user PageStyle"></span>
+                <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
     </div>
 </nav>
-</div>
+

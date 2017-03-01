@@ -2,37 +2,45 @@
 <html lang="en" ng-app="WebAppMaker">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="css/style.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+            integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+            crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"
+            integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI="
+            crossorigin="anonymous"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
 
+
+    <script src="directives/wbdv-sortable.js"></script>
     <script src="app.js"></script>
     <script src="config.js"></script>
 
-    <!-- Services -->
+    <!-- controllers -->
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.client.js"></script>
+    <script src="views/website/controllers/website-list.controller.client.js"></script>
+    <script src="views/website/controllers/website-new.controller.client.js"></script>
+    <script src="views/website/controllers/website-edit.controller.client.js"></script>
+    <script src="views/page/controllers/page.controller.client.js"></script>
+    <script src="views/widget/controllers/widget.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
+
+    <!-- services -->
     <script src="services/user.service.client.js"></script>
     <script src="services/website.service.client.js"></script>
     <script src="services/page.service.client.js"></script>
     <script src="services/widget.service.client.js"></script>
 
-    <!-- Controllers -->
-    <script src="views/user/controllers/login.controller.client.js"></script>
-    <script src="views/user/controllers/profile.controller.client.js"></script>
-    <script src="views/user/controllers/register.controller.client.js"></script>
-    <script src="views/website/controllers/website-list.controller.client.js"></script>
-    <script src="views/website/controllers/website-edit.controller.client.js"></script>
-    <script src="views/website/controllers/website-new.controller.client.js"></script>
-    <script src="views/page/controllers/page-list.controller.client.js"></script>
-    <script src="views/page/controllers/page-new.controller.client.js"></script>
-    <script src="views/page/controllers/page-edit.controller.client.js"></script>
-    <script src="views/widget/controllers/widgetlist.controller.client.js"></script>
-    <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
-    <script src="views/widget/controllers/widget-new.controller.client.js"></script>
+    <title>Assignment Home Page</title>
 </head>
 <body>
     <div ng-view></div>

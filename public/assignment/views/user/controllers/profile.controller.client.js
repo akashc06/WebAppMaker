@@ -2,28 +2,49 @@
     angular
         .module("WebAppMaker")
         .controller("ProfileController", profileController);
-    
-    function profileController($routeParams, UserService) {
-        var app = this;
-        var userID = $routeParams.uid;
-        app.uid = userID;
 
-        app.update = update;
+    function profileController(UserService, $routeParams, $location) {
+        var vm = this;
+        var uid = $routeParams['uid'];
 
-            function update (newuser) {
-            var user = UserService.updateUser(userID, newuser);
-            if (user == null){
-                app.error = "User not found";
-            }
-            else {
-                app.message = "Successfully updated";
-            }
-        }
+        //event handlers
+        vm.update = update;
+        vm.unRegisterUser = unRegisterUser;
 
         function init() {
-            app.user = UserService.findUserById(userID);
+            var promise = UserService.findUserById(uid);
+            promise.success(function (user) {
+               vm.user = user;
+            });
         }
         init();
-        
+
+        function update(newUser) {
+            UserService
+                .updateUser(uid, newUser)
+                .success(function (updatedUser) {
+                    if(updatedUser == null){
+                        vm.error = "Unable to Update User";
+                    }else{
+                        vm.message = "User Successfully Updated";
+                    }
+                });
+        }
+
+        function unRegisterUser(user) {
+            var ans = confirm("Are you sure that you want to UnRegister?");
+            if(ans){
+                UserService
+                    .deleteUser(user._id)
+                    .success(function () {
+                        $location.url("/login");
+                    })
+                    .error(function () {
+                        vm.error = "Unable to UnRegister User";
+                    })
+            }
+
+        }
     }
+    
 })();

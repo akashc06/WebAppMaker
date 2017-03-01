@@ -1,26 +1,25 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <div class="navbar-text pull-right">
-            <a href="#/user/{{model.uid}}/website/new">
-                <span class="glyphicon UserStyle glyphicon-plus"></span>
-            </a>
-        </div>
         <div class="navbar-text pull-left">
             <a href="#/user/{{model.uid}}">
-                <span class="glyphicon UserStyle glyphicon-chevron-left" ></span>
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.uid}}/website/new">
+                <span class="glyphicon glyphicon-plus"></span>
             </a>
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand" >
-                <div class="UserStyle" >Websites</div>
+            <a class="navbar-brand" href="">
+                Websites
             </a>
         </div>
     </div>
 </nav>
 
-<br/>
-<div class="container-fluid bottombtns">
+<div class="container-fluid">
 
     <ul class="list-group">
         <li class="list-group-item">
@@ -39,35 +38,35 @@
                 </div>
             </div>
         </li>
-        <li ng-repeat="website in model.list" class="list-group-item">
+
+        <li ng-repeat="website in model.websites" class="list-group-item">
             <div class="row">
                 <div class="col-sm-6 col-xs-10">
-                 <a href="#/user/{{model.uid}}/website/{{website._id}}/page">
-                     {{website.name}}
-                 </a>
+                    <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">
+                        {{website.name}}
+                    </a>
                 </div>
                 <div class="col-sm-4 hidden-xs">
                     {{website.developerId}}
                 </div>
                 <div class="col-sm-2 col-xs-2">
-                    <a href="#/user/{{model.uid}}/website/{{website._id}}">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    <a href="#/user/{{website.developerId}}/website/{{website._id}}" class="pull-right">
+                        <span class="glyphicon glyphicon-cog"></span>
                     </a>
                 </div>
             </div>
         </li>
     </ul>
+
+
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <div class="row navbar-text text-center pull-right">
-            <div class="col-xs-3">
-                <a href="#/user/{{model.uid}}">
-                    <span class="glyphicon UserStyle glyphicon-user"></span>
-                </a>
-            </div>
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.uid}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
         </div>
     </div>
 </nav>
-

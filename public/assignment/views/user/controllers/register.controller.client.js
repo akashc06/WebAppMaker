@@ -1,26 +1,38 @@
+
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("RegisterController", registerController);
+        .controller("RegisterController", RegisterController);
+
+    function RegisterController($location, UserService) {
+        var vm = this;
+
+        //Event Handlers
+        vm.register = register;
 
 
-    function registerController($location, UserService) {
-        var app = this;
-
-        app.clicked = create;
-
-        function create(user) {
-            var a = (new Date()).getTime();
-            var newuser = {
-                "_id": a,
-                "username": user.username,
-                "password": user.password,
-                "firstName": user.firstName,
-                "lastName": user.lastName
-            };
-            UserService.createUser(newuser);
-            $location.url("/user/"+ newuser._id);
+        function init() {
         }
+        init();
+
+        function register(user) {
+            UserService
+                .findUserByUsername(user.username)
+                .success(function (user) {
+                    vm.error = "Username already taken";
+                })
+                .error(function () {
+                    UserService
+                        .createUser(user)
+                        .success(function (newUser) {
+                            $location.url("/user/" + newUser._id);
+                        })
+                        .error(function () {
+                            vm.error = "User Registration Failed";
+                        })
+                })
+        }
+
 
     }
 })();
