@@ -15,6 +15,10 @@
             var promise = UserService.findUserById(uid);
             promise.success(function (user) {
                vm.user = user;
+                if (vm.user == null){
+                    $location.url("/login");
+                }
+               //console.log(user);
             });
         }
         init();

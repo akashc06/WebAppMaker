@@ -8,13 +8,15 @@
         var vm = this;
         vm.uid = $routeParams['uid'];
 
-
-        function init() {
+        function init(){
             WebsiteService
                 .findWebsitesByUser(vm.uid)
-                .success(function (websites) {
-                    vm.websites = websites;
-                })
+                .success(function (response) {
+                    vm.websites = response;
+                    if(vm.websites.length == 0){
+                        vm.error = "No websites created yet";
+                    }
+                });
         }
         init();
 

@@ -1,94 +1,117 @@
 
-module.exports = function (app) {
+module.exports = function (app, UserModel) {
     app.get("/api/user", findUser);
-    app.get("/api/user/:uid", findUserByID);
-    app.put("/api/user/:uid", updateUser);
+    app.get("/api/user/:userId", findUserById);
+    app.put("/api/user/:userId", updateUser);
     app.post("/api/user", createUser);
-    app.delete("/api/user/:uid", deleteUser);
+    app.delete("/api/user/:userId", deleteUser);
 
-    var users = [
-        {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder", email: "alice@gmail.com" },
-        {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley", email: "bob.marley@gmail.com"  },
-        {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia", email: "charly123@gmail.com"  },
-        {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi", email: "jose2323@gmail.com" }
-    ];
-
-    function createUser(req, res) {
-        var newUser = req.body;
-        newUser._id = (new Date()).getTime() + "";
-        users.push(newUser);
-        res.json(newUser);
-    }
-
-    function findUser(req,res) {
+    function findUser(req, res) {
         var username = req.query.username;
         var password = req.query.password;
         if(username && password){
-            findUserByCredentials(req, res);
+            findUserByCredentials(req,res);
         }
         else if(username){
-            findUserByUsername(req, res);
+            findUserbyUsername(req,res);
         }
     }
 
-    function findUserByUsername(req, res) {
-        var username = req.query.username;
-        var user = users.find(function (u) {
-            return u.username == username;
-        });
-        if(user){
-            res.json(user);
-        }
-        else
-        {
-            res.sendStatus(404).send({message: 'User Not Found'});
-        }
-    }
-
-    function findUserByCredentials(req, res) {
-        var username = req.query.username;
-        var password = req.query.password;
-        var user = users.find(function (user) {
-            return user.username == username && user.password == password;
-        })
-
-        res.json(user);
-    }
-
-    function findUserByID(req, res) {
-        var userID = req.params.uid;
-        var user = users.find(function (u) {
-            return u._id == userID;
-        });
-        res.send(user);
+    function findUserbyUsername(req, res) {
+        var uname = req.query.username;
+        UserModel
+            .findUserbyUsername(uname)
+            .then(function (users) {
+                if(users.length != 0){
+                    res.json(users[0]);
+                }
+                else{
+                    res.sendStatus(404);
+                }
+            },function (err) {
+                res.sendStatus(404);
+            });
     }
 
     function updateUser(req, res) {
-        var userId = req.params.uid;
+        var userId = req.params.userId;
         var newUser = req.body;
-        for(var u in users){
-            var user = users[u];
-            if(user._id == userId){
-                users[u].firstName = newUser.firstName;
-                users[u].lastName = newUser.lastName;
-                users[u].username = newUser.username;
-                users[u].email = newUser.email;
+        UserModel
+            .updateUser(userId, newUser)
+            .then(function (response) {
+                if(response.nModified === 1){
+                    // Update was successful
+                    userModel
+                        .findUserById(userId)
+                        .then(function (response) {
+                            res.json(response);
+                        },function () {
+                            res.sendStatus(404);
+                        })
+                }
+                else{
+                    res.sendStatus(404);
+                }
+            },function () {
+                res.sendStatus(404);
+            });
+    }
+    function findUserByCredentials(req, res) {
+        var username = req.query["username"];
+        var password = req.query["password"];
+
+        UserModel
+            .findUserByCredentials(username, password)
+            .then(function (response) {
+                if(response.length != 0){
+                    res.json(response[0]);
+                }
+                else{
+                    res.sendStatus(404);
+                }
+            },function (err) {
+                res.sendStatus(404);
+            });
+    }
+
+    function findUserById(req, res) {
+        var userId = req.params.userId;
+        UserModel
+            .findUserById(userId)
+            .then(function (user) {
                 res.json(user);
-                return;
-            }
-        }
+            }, function (err) {
+                res.sendStatus(500).send(err);
+            });}
+
+    function createUser(req, res) {
+            var user = req.body;
+            var newUser = {
+                username: user.username,
+                password: user.password,
+                email: user.email,
+                firstName: user.firstname,
+                lastName: user.lastname
+            };
+            UserModel
+                .createUser(newUser)
+                .then(function (newUser) {
+                    res.json(newUser);
+                }, function (err) {
+                    res.sendStatus(404).send(err);
+                });
     }
 
     function deleteUser(req, res) {
-        var userId = req.params.uid;
-        for(var u in users){
-            if(users[u]._id == userId){
-                users.splice(u, 1);
+        var userId = req.params.userId;
+        UserModel
+            .deleteUser(userId)
+            .then(function (response) {
                 res.sendStatus(200);
-                return;
-            }
-        }
-        res.sendStatus(404);
+            },function (err) {
+                res.sendStatus(404);
+            });
     }
-}
+
+};
 

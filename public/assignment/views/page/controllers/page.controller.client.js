@@ -32,7 +32,7 @@
 
         //Event Handlers
         vm.deletePage = deletePage;
-        vm.update = update;
+        vm.update = updatePage;
 
         function init() {
              PageService
@@ -58,7 +58,7 @@
                 })
         }
 
-        function update(newPage) {
+        function updatePage(newPage) {
             PageService
                 .updatePage(vm.pageID, newPage)
                 .success(function () {

@@ -1,39 +1,25 @@
+module.exports = function (app, WebsiteModel) {
 
-module.exports = function (app) {
     app.post("/api/user/:userId/website", createWebsite);
     app.get("/api/user/:userId/website", findWebsitesByUser);
     app.get("/api/website/:websiteId", findWebsiteById);
     app.put("/api/website/:websiteId", updateWebsite);
     app.delete("/api/website/:websiteId", deleteWebsite);
 
-    var websites = [
-        { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem", created: new Date },
-        { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem", created: new Date },
-        { "_id": "456", "name": "Gizmodo",     "developerId": "456", "description": "Lorem", created: new Date },
-        { "_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem", created: new Date },
-        { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem", created: new Date },
-        { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem", created: new Date }
-    ];
-
     function createWebsite(req, res) {
-        var userID = req.params.userId;
-        var newWebsite = req.body;
-        newWebsite.developerId = uid;
-        newWebsite.created = new Date;
-        newWebsite._id = (new Date()).getTime();
-        websites.push(newWebsite);
-        res.json(newWebsite);
+        console.log("Whattup")
     }
 
     function findWebsitesByUser(req, res) {
-        var userId = req.params.userId;
-        var sites = [];
-        for(var w in websites){
-            if(websites[w].developerId == userId){
-                sites.push(websites[w]);
-            }
-        }
-        res.json(sites);
+        var userId = req.params.userId;0
+        console.log(userId);
+        WebsiteModel
+            .findAllWebsitesForUser(userId)
+            .then(function (response) {
+                res.json(response);
+            },function (err) {
+                res.sendStatus(404);
+            });
     }
 
     function findWebsiteById(req, res) {

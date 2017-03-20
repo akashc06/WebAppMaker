@@ -17,20 +17,14 @@
 
         function register(user) {
             UserService
-                .findUserByUsername(user.username)
-                .success(function (user) {
-                    vm.error = "Username already taken";
+                .createUser(user)
+                .success(function (newUser) {
+                    $location.url("/user/" + newUser._id);
                 })
                 .error(function () {
-                    UserService
-                        .createUser(user)
-                        .success(function (newUser) {
-                            $location.url("/user/" + newUser._id);
-                        })
-                        .error(function () {
-                            vm.error = "User Registration Failed";
-                        })
+                    vm.error = "User Registration Failed";
                 })
+
         }
 
 

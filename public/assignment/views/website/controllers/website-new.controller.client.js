@@ -11,12 +11,12 @@
         vm.create = create;
 
 
-        function init() {
+        function init(){
             WebsiteService
                 .findWebsitesByUser(vm.uid)
                 .success(function (websites) {
                     vm.websites = websites;
-                })
+                });
         }
         init();
         
