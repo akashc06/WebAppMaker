@@ -17,14 +17,12 @@
                 UserService
                     .findUserByCredentials(user.username, user.password)
                     .success(function (user) {
-                if (user) {
-                    $location.url("/user/" + user._id);
-                }
-            })
-                .error(function (error) {
-                    vm.error = "User not found";
-                    return null;
-                });
+                        if(user) {
+                            $location.url("/user/"+user[0]._id);
+                        } else {
+                            vm.error = "User not found";
+                        }
+                    });
 
         }
     }

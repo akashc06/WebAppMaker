@@ -11,11 +11,8 @@
         function init(){
             WebsiteService
                 .findWebsitesByUser(vm.uid)
-                .success(function (response) {
-                    vm.websites = response;
-                    if(vm.websites.length == 0){
-                        vm.error = "No websites created yet";
-                    }
+                .success(function (websites) {
+                    vm.websites = websites;
                 });
         }
         init();

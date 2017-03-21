@@ -18,7 +18,6 @@
                 if (vm.user == null){
                     $location.url("/login");
                 }
-               //console.log(user);
             });
         }
         init();

@@ -1,3 +1,3 @@
-/**
- * Created by Akash on 3/18/2017.
- */
+module.exports = function () {
+
+};

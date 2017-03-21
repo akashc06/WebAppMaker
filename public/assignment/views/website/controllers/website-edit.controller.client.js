@@ -14,7 +14,7 @@
 
         function init() {
             WebsiteService
-                .findWebsiteById(vm.wid)
+                .findWebsitesById(vm.wid)
                 .success(function (website) {
                     vm.website = website;
                 });

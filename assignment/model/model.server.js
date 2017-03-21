@@ -1,15 +1,17 @@
-module.exports = function () {
+module.exports = function (mongoose) {
+    var q = require('q');
 
-var mongoose = require("mongoose");
+    var userModel       = require("./user/user.model.server")(mongoose, q);
+    var websiteModel    = require("./website/website.model.server")(mongoose, q);
+    var pageModel       = require("./page/page.model.server")(mongoose, q);
+    var widgetModel     = require("./widget/widget.model.server")(mongoose, q);
 
-var connectionString = 'mongodb://127.0.0.1:27017/test';
- var connectionString = 'mongodb://127.0.0.1:27017/assignment';
- if(process.env.MLAB_USERNAME) {
-     connectionString = process.env.MLAB_USERNAME + ":" +
-         process.env.MLAB_PASSWORD + "@" +
-         process.env.MLAB_HOST + ':' +
-         process.env.MLAB_PORT + '/' +
-         process.env.MLAB_APP_NAME;
- }
- mongoose.connect(connectionString);
+    var model = {
+        userModel: userModel,
+        websiteModel: websiteModel,
+        pageModel:pageModel,
+        widgetModel:widgetModel
+    };
+
+    return model;
 };
