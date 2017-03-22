@@ -2,11 +2,11 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pageID}}/widget">
+            <a href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{model.pageID}}/widget">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
-        <div class="navbar-text pull-right" ng-click="model.update(model.widget)">
+        <div class="navbar-text pull-right" ng-click="model.updateWid(model.widget)">
             <a href="">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
@@ -47,10 +47,6 @@
         </select>
     </div>
 
-    <div class="form-group">
-        <a class="btn btn-info btn-block" ng-click="model.update(model.widget)">Update</a>
-    </div>
-
     <a class="btn btn-danger btn-block" ng-click="model.deleteWidget()">
         Delete
     </a>
@@ -61,7 +57,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.uid}}">
+            <a href="#/user/{{model.userID}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

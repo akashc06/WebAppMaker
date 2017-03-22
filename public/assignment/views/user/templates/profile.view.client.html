@@ -25,52 +25,53 @@
     </div>
 
     <div class="form-group">
-    <label for="puname">Username</label>
+    <label for="profile-username">Username</label>
     <input class="form-control"
            ng-model="model.user.username"
-           id="puname"
+           id="profile-username"
            value="akash"
            type="text"/>
     </div>
 
     <div class="form-group">
-    <label for="pmail">Email</label>
+    <label for="profile-mail">Email</label>
     <input class="form-control"
            ng-model="model.user.email"
            value="akashc@gmail.com"
-           id="pmail"
+           id="profile-mail"
            type="email"/>
     </div>
 
+
     <div class="form-group">
-    <label for="pfname">First Name</label>
+    <label for="profile-fname">First Name</label>
     <input class="form-control"
            ng-model="model.user.firstName"
-           id="pfname"
+           id="profile-fname"
            value="Akash"
            type="text"/>
     </div>
 
     <div class="form-group">
-    <label for="plname">Last Name</label>
+    <label for="profile-lname">Last Name</label>
     <input class="form-control"
            ng-model="model.user.lastName"
-           id="plname"
-           value="Chidananda Murthy"
+           id="profile-lname"
+           value="C"
            type="text"/>
     </div>
 
-    <div class="form-group">
+
     <div class="form-group">
     <a href="#/user/{{model.user._id}}/website" class="btn btn-primary btn-block" >
         Websites
     </a>
     </div>
-    </div>
+
 
     <div class="form-group">
     <a class="btn btn-warning btn-block" ng-click="model.unRegisterUser(model.user)">
-        Unregister
+        Delete
     </a>
     </div>
 

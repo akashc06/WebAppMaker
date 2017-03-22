@@ -6,14 +6,14 @@
 
     function EditWidgetController($routeParams, WidgetService, $location) {
         var vm = this;
-        vm.uid = $routeParams['uid'];
-        vm.wid = $routeParams['wid'];
+        vm.userID = $routeParams['uid'];
+        vm.websiteID = $routeParams['wid'];
         vm.pageID = $routeParams['pid'];
         vm.widgetID = $routeParams['wgid'];
 
 
         //Event Handler
-        vm.update = update;
+        vm.updateWid = updateWid;
         vm.deleteWidget = deleteWidget;
 
         function init() {
@@ -25,11 +25,11 @@
         }
         init();
 
-        function update(widget) {
+        function updateWid(widget) {
             WidgetService
                 .updateWidget(vm.widgetID, widget)
                 .success(function () {
-                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pageID + "/widget");
+                    $location.url("/user/" + vm.userID + "/website/" + vm.websiteID + "/page/" + vm.pageID + "/widget");
                 })
         }
 
@@ -37,7 +37,7 @@
             WidgetService
                 .deleteWidget(vm.widgetID)
                 .success(function () {
-                    $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pageID + "/widget");
+                    $location.url("/user/" + vm.userID + "/website/" + vm.websiteID + "/page/" + vm.pageID + "/widget");
                 })
         }
 

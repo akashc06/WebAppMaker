@@ -2,8 +2,13 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pageID}}/widget">
+            <a href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{model.pageID}}/widget">
                 <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-right" ng-click="model.updateWid(model.widget)">
+            <a href="">
+                <span class="glyphicon glyphicon-ok"></span>
             </a>
         </div>
         <div class="navbar-header">
@@ -16,54 +21,37 @@
 
 <div class="container-fluid">
 
-    <div class="form-group">
-    <label for="Youname">Name</label>
+    <label for="widget-youtube-widget-name">Name</label>
     <input class="form-control"
            ng-model="model.widget.name"
-           id="Youname" placeholder="Name" type="text"/>
-    </div>
+           id="widget-youtube-widget-name" placeholder="Name" type="text"/>
 
-    <div class="form-group">
-    <label for="Youtitle">Title</label>
+    <label for="widget-youtube-widget-title">Title</label>
     <input class="form-control"
            ng-model="model.widget.title"
-           id="Youtitle" type="text"/>
-    </div>
+           id="widget-youtube-widget-title" type="text"></input>
 
-    <div class="form-group">
-    <label for="Yourl">URL</label>
+    <label for="widget-youtube-widget-url">URL</label>
     <input class="form-control"
            ng-model="model.widget.url"
-           value="https://www.youtube.com/watch?v=kBZj7qIOAE8"
-           id="Yourl" type="url"/>
-    </div>
+           value="https://www.youtube.com/watch?v=kBZj7qIOAE8" id="widget-youtube-widget-url" type="url"></input>
 
-    <div class="form-group">
-    <label for="Youwidth">Width</label>
+    <label for="widget-youtube-widget-width">Width</label>
     <input class="form-control"
            ng-model="model.widget.width"
-           placeholder="width"
-           id="Youwidth" type="text"/>
-    </div>
+           placeholder="width" id="widget-youtube-widget-width" type="text"></input>
 
-    <div class="form-group">
-        <a class="btn btn-info btn-block" ng-click="model.update(model.widget)">
-            Update
-        </a>
-    </div>
-
-    <div class="form-group">
     <a class="btn btn-danger btn-block" ng-click="model.deleteWidget()">
         Delete
     </a>
-    </div>
+
 
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.uid}}">
+            <a href="#/user/{{model.userID}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

@@ -3,7 +3,7 @@
     <div class="row container-fluid">
         <div class="col-sm-4 hidden-xs">
             <div class="navbar-text pull-left">
-                <a href="#/user/{{model.uid}}/website">
+                <a href="#/user/{{model.userID}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -12,7 +12,7 @@
                     Websites
                 </a>
             </div>
-            <div class="navbar-text pull-right" href="#/user/{{model.uid}}/website/new">
+            <div class="navbar-text pull-right" href="#/user/{{model.userID}}/website/new">
                 <a>
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
@@ -21,12 +21,17 @@
         </div>
         <div class="col-sm-8">
             <div class="navbar-text pull-left visible-xs">
-                <a href="#/user/{{model.uid}}/website">
+                <a href="#/user/{{model.userID}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
            </div>
+            <div class="navbar-text pull-right" >
+                <a href="">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
             <div class="navbar-header">
-                <a class="navbar-brand">
+                <a class="navbar-brand" href="#">
                     Edit Website
                 </a>
             </div>
@@ -45,7 +50,7 @@
                         Name
                     </div>
                     <div class="col-xs-6">
-                        <a href="#/user/{{model.uid}}/website/new" class="pull-right">
+                        <a href="#/user/{{model.userID}}/website/new" class="pull-right">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -58,7 +63,7 @@
                         {{website.name}}
                     </div>
                     <div class="col-xs-6">
-                        <a href="#/user/{{website.developerId}}/website/{{website._id}}" class="pull-right">
+                        <a href="#/user/{{model.userID}}/website/{{website._id}}" class="pull-right">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </div>
@@ -87,13 +92,13 @@
         </div>
 
         <div class="form-group">
-            <a ng-click="model.update(model.website)" class="btn btn-primary btn-block">
+            <a class="btn btn-primary btn-block" ng-click="model.editWebsite(model.website)">
                 Update
             </a>
         </div>
 
         <div class="form-group">
-        <a class="btn btn-danger btn-block" ng-click="model.delete()">
+        <a class="btn btn-danger btn-block" ng-click="model.deleteSite()">
             Delete
         </a>
         </div>
@@ -105,7 +110,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.uid}}">
+            <a href="#/user/{{model.userID}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

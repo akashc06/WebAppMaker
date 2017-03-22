@@ -5,40 +5,40 @@
 
     function WebsiteEditController($routeParams, WebsiteService,$location) {
         var vm = this;
-        vm.uid = $routeParams['uid'];
-        vm.wid = $routeParams['wid'];
+        vm.userID = $routeParams['uid'];
+        vm.websiteID = $routeParams['wid'];
 
         //Event Handler
-        vm.update = update;
-        vm.delete = deleteWeb;
+        vm.editWebsite = editWebsite;
+        vm.deleteSite = deleteSite;
 
         function init() {
             WebsiteService
-                .findWebsitesById(vm.wid)
+                .findWebsiteById(vm.websiteID)
                 .success(function (website) {
                     vm.website = website;
                 });
             WebsiteService
-                .findWebsitesByUser(vm.uid)
+                .findWebsitesByUser(vm.userID)
                 .success(function (websites) {
                     vm.websites = angular.copy(websites);
                 })
         }
         init();
 
-        function update(newWebsite) {
+        function editWebsite(newWebsite) {
             WebsiteService
-                .updateWebsite(vm.wid, newWebsite)
+                .updateWebsite(vm.websiteID, newWebsite)
                 .success(function () {
-                    $location.url("/user/" + vm.uid + "/website/");
+                    $location.url("/user/" + vm.userID + "/website/");
                 })
         }
 
-        function deleteWeb(){
+        function deleteSite(){
             WebsiteService
-                .deleteWebsite(vm.wid)
+                .deleteWebsite(vm.websiteID)
                 .success(function () {
-                    $location.url("/user/" + vm.uid + "/website/");
+                    $location.url("/user/" + vm.userID + "/website/");
                 })
 
         }

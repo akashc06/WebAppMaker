@@ -25,6 +25,8 @@
         function addImageWidget() {
             var newimage = {"widgetType": "IMAGE", "width": "100%", "url": "http://lorempixel.com/400/200/"};
             var NewImg = WidgetService.createWidget(app.pid, newimage);
+            console.log(app.uid);
+            console.log(app.wid);
             $location.url("/user/" + app.uid + "/website/" + app.wid + "/page/" + app.pid + "/widget/" + NewImg._id);
         }
         

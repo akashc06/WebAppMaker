@@ -1,12 +1,12 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pageID}}/widget">
+            <a href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{model.pageID}}/widget">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pageID}}/widget/">
+            <a href="#/user/{{model.userID}}/website/{{model.websiteID}}/page/{{model.pageID}}/widget/">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
         </div>
@@ -20,15 +20,21 @@
 
 <div class="container-fluid">
 
-    <div ng-switch="model.widget.widgetType">
-        <div ng-switch-when="HEADER">
+    <div ng-switch="model.widget.type">
+        <div ng-switch-when="HEADING">
             <ng-include src="'views/widget/templates/widget-HEADER.view.client.html'"></ng-include>
         </div>
         <div ng-switch-when="IMAGE">
             <ng-include src="'views/widget/templates/widget-IMAGE.view.client.html'"></ng-include>
         </div>
-        <div ng-switch-when="YOUTUBE">
+        <div ng-switch-when="YOUTUBE" class="youtube-widget">
             <ng-include src="'views/widget/templates/widget-YOUTUBE.view.client.html'"></ng-include>
+        </div>
+        <div ng-switch-when="HTML">
+            <ng-include src="'views/widget/templates/widget-html.view.client.html'"></ng-include>
+        </div>
+        <div ng-switch-when="TEXT">
+            <ng-include src="'views/widget/templates/widget-text.view.client.html'"></ng-include>
         </div>
 
     </div>
@@ -38,7 +44,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.uid}}">
+            <a href="#/user/{{model.userID}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

@@ -5,26 +5,23 @@
 
     function profileController(UserService, $routeParams, $location) {
         var vm = this;
-        var uid = $routeParams['uid'];
+        var userID = $routeParams['uid'];
 
         //event handlers
         vm.update = update;
         vm.unRegisterUser = unRegisterUser;
 
         function init() {
-            var promise = UserService.findUserById(uid);
+            var promise = UserService.findUserById(userID);
             promise.success(function (user) {
                vm.user = user;
-                if (vm.user == null){
-                    $location.url("/login");
-                }
             });
         }
         init();
 
         function update(newUser) {
             UserService
-                .updateUser(uid, newUser)
+                .updateUser(userID, newUser)
                 .success(function (updatedUser) {
                     if(updatedUser == null){
                         vm.error = "Unable to Update User";
@@ -35,7 +32,7 @@
         }
 
         function unRegisterUser(user) {
-            var ans = confirm("Are you sure that you want to UnRegister?");
+            var ans = confirm("Are you sure that you want to Delete user?");
             if(ans){
                 UserService
                     .deleteUser(user._id)
@@ -43,7 +40,7 @@
                         $location.url("/login");
                     })
                     .error(function () {
-                        vm.error = "Unable to UnRegister User";
+                        vm.error = "Unable to delete User";
                     })
             }
 

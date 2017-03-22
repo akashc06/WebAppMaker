@@ -1,32 +1,43 @@
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
-        .factory("WebsiteService",WebsiteService);
+        .factory("WebsiteService", websiteService);
 
-    function WebsiteService($http) {
-        var api={
-            "createWebsite":createWebsite,
-            "findWebsitesByUser":findWebsitesByUser,
-            "findWebsitesById":findWebsitesById,
-            "updateWebsite":updateWebsite,
-            "deleteWebsite":deleteWebsite
+    function websiteService($http) {
+
+        var api ={
+            "createWebsite" : createWebsite,
+            "findWebsitesByUser" : findWebsitesByUser,
+            "findWebsiteById" : findWebsiteById,
+            "updateWebsite" : updateWebsite,
+            "deleteWebsite" : deleteWebsite,
+            "addPage" : addPage
         };
-
         return api;
+
         function createWebsite(userId, website) {
-            return $http.post("/api/user/"+userId+"/website", website);
+            return $http.post("/api/user/" + userId + "/website", website);
         }
-        function findWebsitesByUser(uid) {
-            return $http.get("/api/user/"+uid+"/website");
+
+        function findWebsitesByUser(userId) {
+            return $http.get("/api/user/" + userId + "/website");
         }
-        function findWebsitesById(wid) {
-            return $http.get("/api/website/"+wid);
+
+        function findWebsiteById(websiteId) {
+            return $http.get("/api/website/" + websiteId);
         }
-        function updateWebsite(wid, updatedWebsite) {
-            return $http.put("/api/website/"+wid, updatedWebsite);
+
+        function updateWebsite(websiteId, website) {
+            return $http.put("/api/website/" + websiteId, website);
         }
-        function deleteWebsite(wid) {
-            return $http.delete("/api/website/"+wid);
+
+        function deleteWebsite(websiteId) {
+            return $http.delete("/api/website/" + websiteId);
+        }
+
+        function addPage(websiteId, pageId) {
+            return $http.put("/api/website/"+websiteId+"/page/"+pageId);
         }
     }
+
 })();

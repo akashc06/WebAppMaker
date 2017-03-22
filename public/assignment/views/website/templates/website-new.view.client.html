@@ -3,7 +3,7 @@
     <div class="row container-fluid">
         <div class="col-sm-4 hidden-xs">
             <div class="navbar-text pull-left">
-                <a href="#/user/{{model.uid}}/website">
+                <a href="#/user/{{model.userID}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -21,7 +21,7 @@
         </div>
         <div class="col-sm-8">
             <div class="navbar-text pull-left visible-xs">
-                <a href="#/user/{{model.uid}}/website">
+                <a href="#/user/{{model.userID}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -45,7 +45,7 @@
                         Name
                     </div>
                     <div class="col-xs-6">
-                        <a href="#/user/{{model.uid}}/website/new" class="pull-right">
+                        <a href="#/user/{{model.userID}}/website/new" class="pull-right">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -60,7 +60,7 @@
                         {{website.name}}
                     </div>
                     <div class="col-xs-6">
-                        <a href="#/user/{{website.developerId}}/website/{{website._id}}" class="pull-right">
+                        <a href="#/user/{{website._user}}/website/{{website._id}}" class="pull-right">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </div>
@@ -85,8 +85,7 @@
                   id="website-new-website-new-description" rows="4"></textarea>
         </div>
 
-
-        <a class="btn btn-success btn-block" ng-click="model.create(model.website)">
+        <a class="btn btn-success btn-block" ng-click="model.createWebsite(model.website)">
             Create
         </a>
 
@@ -97,7 +96,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.uid}}">
+            <a href="#/user/{{model.userID}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
