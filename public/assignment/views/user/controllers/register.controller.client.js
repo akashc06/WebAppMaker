@@ -18,7 +18,7 @@
             UserService
                 .findUserByUsername(user.username)
                 .success(function (user) {
-                    vm.error = "Username already taken";
+                        vm.error = "Username already taken";
                 })
                 .error(function () {
                     UserService
