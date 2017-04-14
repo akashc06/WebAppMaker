@@ -12,14 +12,9 @@
             "findUserByCredentials" : findUserByCredentials,
             "updateUser" : updateUser,
             "deleteUser" : deleteUser,
-            "addWebsite" : addWebsite,
-            "login" : login
+            "addWebsite" : addWebsite
         };
         return api;
-        
-        function login(user) {
-            return $http.post("/api/login", user);
-        }
         
         function createUser(user) {
             return $http.post("/api/user", user);
