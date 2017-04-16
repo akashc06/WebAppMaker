@@ -17,6 +17,60 @@ body {
     width: 100%;
     height: 100%;
 }
+.xof{
+    overflow-x: hidden
+}
+.lgt{
+    font-size: 6em
+}
+.smt{
+    font-size: 3em
+}
+.rmh{
+    text-decoration: none;
+    color: black
+}
+.bk{
+    color: black;
+}
+.rmp{
+    font-size: 20px
+}
+.ash{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.asp{
+    font-size: 30px;
+}
+.nmh{
+    margin-top: 90px
+}
+.nml{
+    font-size: 4em
+}
+.nms{
+    font-size: 2em
+}
+.lgbtn{
+    margin-top: -80px;
+}
+.fbtn{
+    background-color: rgba(6,6,6,0.76);
+    color: white;
+    margin-bottom: 10px
+}
+.gp{
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+.tg{
+    margin-left: 150px;
+}
+.resume{
+    text-decoration: none;
+    color: whitesmoke
+}
 .sec2{
     margin-top: 30px;
     width: 80%;

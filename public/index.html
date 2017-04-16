@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -20,7 +20,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Akash Chidananda Murthy</a>
+            <a class="navbar-brand hidden-xs" href="#">Akash Chidananda Murthy</a>
+            <a class="navbar-brand visible-xs" href="#">Akash C</a>
         </div>
         <div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
@@ -39,59 +40,90 @@
     <img src="images/main.jpg" class="topimg" alt="First slide">
             <div class="main-text hidden-xs">
                 <div class="col-md-12" align="left">
-                    <h1 style="font-size: 6em">
+                    <h1 class="lgt">
                         I DESIGN AND</h1>
-                            <h1 style="font-size: 6em">DEVELOP</h1>
-                    <hr style="margin-left: 150px" width="10%" align="left">
+                            <h1 class="lgt">DEVELOP</h1>
+                    <hr class="tg" width="10%" align="left">
                     <h2>Let's make internet a better place</h2>
             </div>
         </div>
+
+    <div class="main-text visibile-xs hidden-sm hidden-md hidden-lg">
+        <div class="col-xs-12" align="left">
+            <h1 class="smt" >
+                I DESIGN AND</h1>
+            <h1 class="smt" >DEVELOP</h1>
+            <hr class="tg" width="10%" align="left">
+            <h2>Let's make internet a better place</h2>
+        </div>
+    </div>
     </div>
 
 </div>
-<div id="section2" class="container-fluid">
+<div id="section2" class="container-fluid xof">
     <div class="col-md-6 hidden-xs pull-right">
         <img src="images/pc.jpg" class="pc" align="right" alt="First slide">
     </div>
+    <div class="col-xs-12 visible-xs">
+        <img src="images/pc.jpg" width="100%" alt="First slide">
+    </div>
 
     <div class="col-md-6 col-xs-12">
-        <h1 align="center"><a style="text-decoration: none; color: black"
+        <h1 align="center"><a class="rmh"
                               href="https://reviewme-app.herokuapp.com/#/home">Review Me</a></h1>
-    <hr style="color: black">
-    <p style="font-size: 20px">Going out for a fancy dinner and getting only so-so food and horrible service can be a big disappointment,
+    <hr class="bk">
+    <p class="rmp">Going out for a fancy dinner and getting only so-so food and horrible service can be a big disappointment,
         especially when you’re watching your budget. One of the best ways to find out what to expect
         at a restaurant is by researching it before you go. </p>
-    <p style="font-size: 20px">ReviewME is one such application that provides you with all the necessary information on restaurants around you.
+    <p class="rmp">ReviewME is one such application that provides you with all the necessary information on restaurants around you.
         One can also search for restaurants of all kinds</p>
     </div>
 </div>
-<div id="section3" class="container-fluid">
+<div id="section3" class="container-fluid xof">
     <div class="col-md-6">
         <img src="images/ass.png" class="pc2" align="left" alt="First slide">
     </div>
-    <div class="col-md-6">
-        <h1 align="right"><a style="text-decoration: none; color: whitesmoke" href="assignment/#/login">Website Manangement</a></h1>
+    <div class="col-md-6 hidden-xs hidden-sm">
+        <h1 align="right"><a class="ash"
+                             href="assignment/#/login">Website Manangement</a></h1>
         <hr>
-        <p style="font-size: 30px" align="right">A web application developed using MEAN stack that reflects all the aspects of website management.
+        <p class="asp" align="right">A web application developed using MEAN stack that reflects all the aspects of website management.
+            The users can create websites, add different pages to their website and also add/customize widgets to their pages.</p>
+    </div>
+
+    <div class="col-xs-12 visible-xs visible-sm">
+        <h3 align="center"><a class="ash"
+                             href="assignment/#/login">Website Manangement</a></h3>
+        <hr>
+        <p class="rmp" align="justify">A web application developed using MEAN stack that reflects all the aspects of website management.
             The users can create websites, add different pages to their website and also add/customize widgets to their pages.</p>
     </div>
 
 
 </div>
-<div id="section41" class="container-fluid">
-    <div align="center" style="margin-top: 90px">
-        <h1 style="font-size: 4em">Akash Chidananda Murthy</h1>
+<div id="section41" class="container-fluid xof">
+    <div class="hidden-xs nmh" align="center">
+        <h1 class="nml">Akash Chidananda Murthy</h1>
         <h3>Full Stack developer, Northeastern university</h3>
         <hr width="60%">
     </div>
+    <div align="center" class="visible-xs nmh" >
+        <h1 class="nms">Akash Chidananda Murthy</h1>
+        <h4>Full Stack developer, Northeastern university</h4>
+        <hr width="60%">
+    </div>
     <div class="container">
-    <div align="left" >
+    <div align="left" class="hidden-xs" >
         <h3><span class="glyphicon glyphicon-earphone"> </span> 8577015522</h3>
         <h3><span class="glyphicon glyphicon-envelope"> </span> chidanandamurthy.a@husky.neu.edu</h3>
     </div>
-    <div align="right" style="margin-top: -80px;">
+    <div class="visible-xs" align="left" >
+        <h5><span class="glyphicon glyphicon-earphone"> </span> 8577015522</h5>
+        <h6>chidanandamurthy.a@husky.neu.edu</h6>
+    </div>
+    <div align="right" class="hidden-xs lgbtn" >
     <div class="btn-group-vertical">
-            <a class="btn btn-lg" style="background-color: rgba(6,6,6,0.76);color: white;margin-bottom: 10px"
+            <a class="btn btn-lg fbtn" style="margin-bottom: 10px"
                href="https://github.com/akashc06/chidanandamurthy-akash-webdev.git">
             <i class="fa fa-github fa-fw"></i>Github</a>
             <a class="btn btn-primary btn-lg" style="margin-bottom: 10px"
@@ -102,12 +134,26 @@
                 <i class="fa fa-facebook-official fa-fw"></i>Facebook</a>
         </div>
     </div>
+
+        <div align="center" class="visible-xs" >
+            <div class="btn-group-vertical">
+                <a class="btn btn-lg fbtn" style="margin-bottom: 10px"
+                   href="https://github.com/akashc06/chidanandamurthy-akash-webdev.git">
+                    <i class="fa fa-github fa-fw"></i>Github</a>
+                <a class="btn btn-primary btn-lg" style="margin-bottom: 10px"
+                   href="https://linkedin.com/in/akash-chidananda-murthy">
+                    <i class="fa fa-linkedin fa-fw"></i>LinkedIn</a>
+                <a class="btn btn-primary btn-lg" style="margin-bottom: 10px"
+                   href="https://www.facebook.com/akashc06">
+                    <i class="fa fa-facebook-official fa-fw"></i>Facebook</a>
+            </div>
+        </div>
     </div>
     </div>
-<div id="section5" class="container-fluid">
+<div id="section5" class="container-fluid xof">
     <div align="center">
         <h2><span class="glyphicon glyphicon-cloud-download"></span>
-            <a style="text-decoration: none; color: whitesmoke" href="uploads/Resume.pdf" download="Resume.pdf">Download Resume</a> </h2>
+            <a class="resume" href="uploads/Resume.pdf" download="Resume.pdf">Download Resume</a> </h2>
     </div>
 
 </div>
