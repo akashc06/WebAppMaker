@@ -15,6 +15,7 @@
         init();
 
         function register(user) {
+            console.log(user)
             UserService
                 .findUserByUsername(user.username)
                 .success(function (user) {
